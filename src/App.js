@@ -8,6 +8,7 @@ import {
 
 import Home from './layouts/Home'
 import Cart from './layouts/Cart'
+import Navbar from "./components/Navbar/Navbar";
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
 //
@@ -23,27 +24,24 @@ export default function BasicExample() {
             <div>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/">Starter Store</Link>
                     </li>
                     <li>
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/SignUp">Sign up</Link>
                     </li>
                     <li>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Link to="/SignIn">Sign in</Link>
+                    </li>
+                    <li>
+                        <Link to="/Cart">Cart</Link>
                     </li>
                 </ul>
 
                 <hr />
 
-                {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
                 <Switch>
                     <Route exact path="/">
+                        {/*роут до большой надписи с сердцем */}
                         <Home />
                     </Route>
                     <Route path="/cart">

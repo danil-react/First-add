@@ -1,12 +1,12 @@
 import React from "react";
 
-import Card from '../../components/Card'
+import CardNew from '../../components/Card'
 const Home = () => {
-   const arr = ['a','b']
+   const arr = ['a']
     return(
         <div>
             {arr.map((item)=>(
-                <Card name={item}/>
+                <CardNew name={item}/>
             ))}
         </div>
     );

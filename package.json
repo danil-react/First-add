@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
     "istanbul-lib-coverage": "^3.0.0"
   }
 }

@@ -5,10 +5,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
 import {Link} from "react-router-dom";
+import Icon from '@material-ui/core/Icon';
+import lamp from "../../assets/images/iconlamp.svg"
+import IconButton from '@material-ui/core/IconButton';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import WbIncandescentTwoToneIcon from '@material-ui/icons/WbIncandescentTwoTone';
+import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 
 
 const Navbar = () => {
-
 
 
     return (
@@ -18,7 +23,7 @@ const Navbar = () => {
                     <div className={styles.navbar}>
                         <div className={styles.left}>
                             <Typography variant="h6"  >
-                                {/*иконку лампы вставить*/}
+                                <WbIncandescentTwoToneIcon />
                                 <Link to="/">Starter Store</Link>
                             </Typography>
                         </div>
@@ -31,6 +36,7 @@ const Navbar = () => {
                             </Typography>
                             <Typography variant="h6" color="inherit">
                                 <Link to="/Cart">Cart</Link>
+                                <ShoppingCartTwoToneIcon />
                             </Typography>
                         </div>
                     </div>

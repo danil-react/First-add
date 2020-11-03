@@ -2,18 +2,18 @@ import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 
+import styles from "./styles.module.scss";
 import Home from './layouts/Home'
 import Cart from './layouts/Cart'
 import SignIn from './layouts/SignIn'
 import SignUp from './layouts/SignUp'
 import Navbar from "./components/Navbar/Navbar";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import Logo from "./assets/images/lovelamp.svg";
+
+
 
 
 
@@ -22,6 +22,9 @@ export default function BasicExample() {
         <Router>
             <div>
                 <Navbar/>
+                <div className={styles.logo}>
+                    <img src={Logo} alt="logo" />
+                </div>
                 {/*подключил навбар из "./components/Navbar/Navbar"*/}
                 <Switch>
                     {/*свич модуль для страничек*/}

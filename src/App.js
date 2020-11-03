@@ -10,8 +10,10 @@ import Home from './layouts/Home'
 import Cart from './layouts/Cart'
 import SignIn from './layouts/SignIn'
 import SignUp from './layouts/SignUp'
-import Navbar from "./components/Navbar/Navbar";
-import Logo from "./assets/images/lovelamp.svg";
+import NavbarNew from "./components/Navbar/Navbar";
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -21,10 +23,7 @@ export default function BasicExample() {
     return (
         <Router>
             <div>
-                <Navbar/>
-                <div className={styles.logo}>
-                    <img src={Logo} alt="logo" />
-                </div>
+                <NavbarNew/>
                 {/*подключил навбар из "./components/Navbar/Navbar"*/}
                 <Switch>
                     {/*свич модуль для страничек*/}

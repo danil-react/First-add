@@ -1,43 +1,8 @@
 .logo {
   display: flex;
   justify-content: center;
-
-  height: 200px;
-
   img {
-    width: 100%;
-  }
-
-}
-
-@media screen and (max-width: 500px) {
-  .logo {
-    img{
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .logo {
-    img{
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .logo {
-    img{
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .logo {
-    img{
-      width: 100%;
-    }
+    width: 80%;
+    max-width: 1024px;
   }
 }

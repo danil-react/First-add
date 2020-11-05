@@ -6,11 +6,7 @@ import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
 
 const SignUp = () => {
-
-
-
     return (
-
         <div className={styles.container}>
             <div >
                 <h2>Create an account</h2>
@@ -34,7 +30,6 @@ const SignUp = () => {
                     </Form>
                 </div>
             </Container>
-
         </div>
     );
 }

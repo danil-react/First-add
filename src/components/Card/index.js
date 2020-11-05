@@ -1,6 +1,5 @@
 import React from "react";
 
-import styles from "./styles.module.scss";
 import img1 from "../../assets/images/lampA.png";
 import img2 from "../../assets/images/lampB.png";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,8 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 
-
-
+import styles from "./styles.module.scss"
 
 const arr = [
     {

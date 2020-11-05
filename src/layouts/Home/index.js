@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
 
+import Container from "@material-ui/core/Container";
 import CardNew from '../../components/Card'
 import styles from "../../styles.module.scss";
 import Logo from "../../assets/images/lovelamp.svg";

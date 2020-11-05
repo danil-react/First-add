@@ -5,28 +5,23 @@ import {
     Route
 } from "react-router-dom";
 
-import styles from "./styles.module.scss";
 import Home from './layouts/Home'
 import Cart from './layouts/Cart'
 import SignIn from './layouts/SignIn'
 import SignUp from './layouts/SignUp'
 import NavbarNew from "./components/Navbar/Navbar";
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
+import styles from "./styles.module.scss";
 
 export default function BasicExample() {
     return (
         <Router>
             <div>
                 <NavbarNew/>
-                {/*подключил навбар из "./components/Navbar/Navbar"*/}
+                {/*connected navbar from "./components/Navbar/Navbar"*/}
                 <Switch>
-                    {/*свич модуль для страничек*/}
+                    {/*switch module for pages*/}
                     <Route exact path="/">
                         <Home />
                     </Route>
@@ -47,17 +42,6 @@ export default function BasicExample() {
         </Router>
     );
 }
-
-
-// function Home() {
-//     return (
-//         <div>
-//             <h2>Home</h2>
-//         </div>
-//     );
-// }
-
-
 
 function Dashboard() {
     return (

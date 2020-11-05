@@ -6,7 +6,7 @@ import styles from "../../styles.module.scss";
 import Logo from "../../assets/images/lovelamp.svg";
 
 const Home = () => {
-    const arr = ['a','b','c','d','e']
+    const arr = ['a']
     return (
         <Container>
             <div className={styles.logo}>

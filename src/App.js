@@ -33,6 +33,12 @@ export default function BasicExample() {
                     <Route path="/cart">
                         <Cart />
                     </Route>
+                    <Route path="/signIn">
+                        <SignIn />
+                    </Route>
+                    <Route path="/signUp">
+                        <SignUp />
+                    </Route>
                     <Route path="/dashboard">
                         <Dashboard />
                     </Route>

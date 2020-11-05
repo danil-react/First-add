@@ -1,16 +1,23 @@
 import React from "react";
+import Container from "@material-ui/core/Container";
 
-import Card from '../../components/Card'
+import CardNew from '../../components/Card'
+import styles from "../../styles.module.scss";
+import Logo from "../../assets/images/lovelamp.svg";
+
 const Home = () => {
-   const arr = ['a','b']
-    return(
-        <div>
-            <h2>Home</h2>
-            <h2>Home</h2> <h2>Home</h2> <h2>Home</h2> <h2>Home</h2> <h2>Home</h2>
-            {arr.map((item)=>(
-                <Card name={item}/>
-            ))}
-        </div>
+    const arr = ['a','b','c','d','e']
+    return (
+        <Container>
+            <div className={styles.logo}>
+                <img src={Logo} alt="logo"/>
+            </div>
+            <div>
+                {arr.map((item) => (
+                    <CardNew name={item}/>
+                ))}
+            </div>
+        </Container>
     );
 }
 export default Home

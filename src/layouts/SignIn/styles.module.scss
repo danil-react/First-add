@@ -1,11 +1,9 @@
 .form {
   display: flex;
+  justify-content: flex-start;
   border: 2px solid #e0e0e0;
   padding: 20px 20px 20px 20px;
   border-radius: 10px;
-  input{
-    width: 500%;
-  }
 }
 
 .container{

@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.8.1",
     "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.1.0",
     "node-sass": "^4.14.1",
@@ -15,6 +15,8 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "react-validation-boo": "^2.2.6",
+    "semantic-ui-react": "^2.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -42,7 +44,10 @@
     ]
   },
   "devDependencies": {
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "istanbul-lib-coverage": "^3.0.0"
+    "formik": "^2.2.3",
+    "istanbul-lib-coverage": "^3.0.0",
+    "yup": "^0.29.3"
   }
 }

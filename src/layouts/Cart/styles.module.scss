@@ -1,0 +1,65 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px 100px;
+}
+
+.goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+}
+
+.left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+  margin: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+}
+
+.deleted {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+  margin: 10px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+}
+
+.check {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+}

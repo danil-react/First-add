@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import CardMedia from "@material-ui/core/CardMedia";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
+
 import ModalCard from './components/ModalCard'
 
 import styles from "./styles.module.scss"
@@ -22,28 +23,29 @@ const arr = [
         img: img2,
         title: "Gold Desk",
         price: "$200.00",
+
     },
 ]
 
 const CardNew = () => {
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState(null)
     const useStyles = makeStyles({
         root: {
-            maxWidth: 800,
+            maxWidth: 700,
         },
         media: {
-            height: 400,
+            height: 200,
         },
     });
 
     const classes = useStyles();
-
+console.log(modal)
     return (
         <div className={styles.card}>
             {arr.map((item, index) => (
-                <Card className={classes.root} onClick={()=>{setModal(!modal)}}>
-
-                    <CardActionArea>
+                <Card className={classes.root} >
+                    {modal === index && <ModalCard id={index} setClose={() => setModal(null)}/>}
+                    <CardActionArea onClick={()=>{setModal(index)}}>
                         <CardMedia
                             className={styles.cardImage}
                             image={item.img}
@@ -57,14 +59,11 @@ const CardNew = () => {
                                 {item.price}
                             </Typography>
                         </CardContent>
-
                     </CardActionArea>
-
                 </Card>
             ))}
         </div>
     );
 }
-
 
 export default CardNew;

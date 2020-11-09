@@ -1,9 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Home from './layouts/Home'
 import Cart from './layouts/Cart'
@@ -19,9 +15,7 @@ export default function BasicExample() {
         <Router>
             <div>
                 <NavbarNew/>
-                {/*connected navbar from "./components/Navbar/Navbar"*/}
                 <Switch>
-                    {/*switch module for pages*/}
                     <Route exact path="/">
                         <Home />
                     </Route>

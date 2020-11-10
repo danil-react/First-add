@@ -8,6 +8,7 @@ import SignUp from './layouts/SignUp'
 import NavbarNew from "./components/Navbar/Navbar";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "antd/dist/antd.css";
 import styles from "./styles.module.scss";
 
 export default function BasicExample() {

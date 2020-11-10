@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './layouts/Home'
+import Cart from './layouts/Cart'
+import SignIn from './layouts/SignIn'
+import SignUp from './layouts/SignUp'
+import NavbarNew from "./components/Navbar/Navbar";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "antd/dist/antd.css";
+import styles from "./styles.module.scss";
+
+export default function BasicExample() {
+    return (
+        <Router>
+            <div>
+                <NavbarNew/>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/cart">
+                        <Cart />
+                    </Route>
+                    <Route path="/signIn">
+                        <SignIn />
+                    </Route>
+                    <Route path="/signUp">
+                        <SignUp />
+                    </Route>
+                    <Route path="/dashboard">
+                        <Dashboard />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
-export default App;
+function Dashboard() {
+    return (
+        <div>
+            <h2>Dashboard</h2>
+        </div>
+    );
+}

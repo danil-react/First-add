@@ -8,7 +8,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 
 const CardNew = ({products, onOpen}) => {
-
+console.log(products)
     const useStyles = makeStyles({
         root: {
             maxWidth: 700,

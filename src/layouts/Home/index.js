@@ -15,12 +15,13 @@ const arr = [
         img: img1,
         title: "Blue Desk",
         price: "$250.00",
+        info: "for poor people"
     },
     {
         img: img2,
         title: "Gold Desk",
         price: "$200.00",
-
+        info: "for rich people"
     },
 ]
 const Home = () => {
@@ -44,7 +45,7 @@ const Home = () => {
             <div className={styles.img}>
                 <CardNew products={arr} onOpen={openModal}/>
             </div>
-            <Modal visible={toggle} onOk={() => console.log('fun')} onCancel={closeModal}>
+            <Modal visible={toggle} onOk={() => console.log('fun')} onCancel={closeModal} className={styles.modal}>
                 <ModalCard setClose={() => setModal(null)} selectedProduct={arr[productIndex]}/>
             </Modal>
         </Container>

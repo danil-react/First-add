@@ -18,8 +18,8 @@ console.log(products)
         },
     });
 
-    const classes = useStyles();
 
+    const classes = useStyles();
     return (
         <div className={styles.card}>
             {products.map((item, index) => (

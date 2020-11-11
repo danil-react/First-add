@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useLayoutEffect} from "react";
 import styles from "../../styles.module.scss";
 import Container from "@material-ui/core/Container";
 import {Modal} from "antd"
@@ -10,26 +10,19 @@ import Logo from "../../assets/images/lovelamp.svg";
 import img1 from "../../assets/images/lampA.png";
 import img2 from "../../assets/images/lampB.png";
 
-const arr = [
-    {
-        img: img1,
-        title: "Blue Desk",
-        price: "$250.00",
-        info: "for poor people"
-    },
-    {
-        img: img2,
-        title: "Gold Desk",
-        price: "$200.00",
-        info: "for rich people"
-    },
-]
+
 const Home = () => {
+    const [products, setProducts] = useState([])
+
+  useLayoutEffect(() => {
+        setProducts(JSON.parse(localStorage.getItem('products')))
+    },[])
+
     const [productIndex, setModal] = useState(null)
     const [toggle, setToggle] = useState(false);
 
     const closeModal = () => {
-        setModal(null);
+        // setModal(null);
         setToggle(false)
     }
     const openModal = (index) => {
@@ -37,16 +30,17 @@ const Home = () => {
         setToggle(true)
     }
 
+
     return (
         <Container>
             <div className={styles.logo}>
                 <img src={Logo} alt="logo"/>
             </div>
             <div className={styles.img}>
-                <CardNew products={arr} onOpen={openModal}/>
+                <CardNew products={products} onOpen={openModal}/>
             </div>
             <Modal visible={toggle} onOk={() => console.log('fun')} onCancel={closeModal} className={styles.modal}>
-                <ModalCard setClose={() => setModal(null)} selectedProduct={arr[productIndex]}/>
+                <ModalCard setClose={() => setModal(null)} selectedProduct={products[productIndex]} products={products}/>
             </Modal>
         </Container>
     );

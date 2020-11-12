@@ -1,27 +1,37 @@
 import React, {useState} from "react";
 
-
-
-const Local = ({products}) => {
+const addValueToCart = (cart, value, product) => {
+  const {id} = product;
+  const isProductExist = cart.some(item => item.id === id);
+  if (isProductExist) {
+    return cart.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          number: Number(item.number) + Number(value)
+        }
+      }
+      return item
+    })
+  }
+  return [...cart, {...product, number: value}]
+}
+const Local = ({product, setState}) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
-
-
-
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(value,products)
+    if (value > product.total) {
+      console.log('ne mojno')
+      setError('Erorr')
+    } else {
+      console.log('mojno')
+      setState((prevState) => ({...prevState, cart: addValueToCart(prevState.cart, value, product)}))
+    }
 
-    // if(value > products.total){
-    //   console.log('ne mojno')
-    // }else{
-    //   console.log('mojno')
-    // }
-      // setError('Erorr')
   };
 
   return (

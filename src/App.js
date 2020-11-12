@@ -1,5 +1,7 @@
 import React, {useLayoutEffect, useState} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "antd/dist/antd.css";
 
 import Home from './layouts/Home'
 import Cart from './layouts/Cart'
@@ -7,8 +9,6 @@ import SignIn from './layouts/SignIn'
 import SignUp from './layouts/SignUp'
 import NavbarNew from "./components/Navbar/Navbar";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "antd/dist/antd.css";
 import img1 from "./assets/images/lampA.png";
 import img2 from "./assets/images/lampB.png";
 
@@ -39,6 +39,7 @@ export default function BasicExample() {
   const [state, setState] = useState({
     cart: [],
   })
+
   const {cart} = state;
 
   return (

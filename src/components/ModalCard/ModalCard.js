@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "../ModalCard/styles.module.scss"
 
-
 import Local from "../LocalStorage/index"
-
 
 const ModalCard = (props) => {
   return (

@@ -2,20 +2,13 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
-
+import CardCart from "../../components/CardCart/index"
 
 const Cart = ({cart}) => {
   return (
     <div className={styles.container}>
       <Container>
-        <div className={styles.goods}>
-          <div className={styles.left}>
-            {cart.map(item => <div>{'${item.title}, ${item.number}'}</div>)}
-          </div>
-          <div className={styles.deleted}>
-            <p>button</p>
-          </div>
-        </div>
+        <CardCart cart={cart}/>
         <br/>
         <br/>
         <br/>
@@ -31,4 +24,5 @@ const Cart = ({cart}) => {
     </div>
   );
 }
+
 export default Cart

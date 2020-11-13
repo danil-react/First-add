@@ -3,23 +3,19 @@ import React from "react";
 import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
 import CardCart from "../../components/CardCart/index"
+import CartPay from "../../components/CartPay/index"
 
-const Cart = ({cart}) => {
+const Cart = ({cart, setState}) => {
+
+
   return (
     <div className={styles.container}>
       <Container>
-        <CardCart cart={cart}/>
+        <CardCart cart={cart} setState={setState}/>
         <br/>
         <br/>
         <br/>
-        <div className={styles.price}>
-          <div className={styles.total}>
-            <p>Sub total:</p>
-          </div>
-          <div className={styles.check}>
-            <p>check out</p>
-          </div>
-        </div>
+        <CartPay cart={cart} setState={setState}/>
       </Container>
     </div>
   );

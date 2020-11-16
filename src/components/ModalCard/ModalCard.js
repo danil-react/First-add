@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "../ModalCard/styles.module.scss"
 
-
 import Local from "../LocalStorage/index"
-
 
 const ModalCard = (props) => {
   return (
@@ -17,7 +15,7 @@ const ModalCard = (props) => {
             <a>{props.selectedProduct.title}</a>
           </div>
           <div className={styles.price}>
-            <a>{props.selectedProduct.price}</a>
+            <a>${props.selectedProduct.price}</a>
           </div>
           <div className={styles.uniqueId}>
             <a>SKU: BLE1000BLU</a>

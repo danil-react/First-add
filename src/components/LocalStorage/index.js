@@ -8,7 +8,7 @@ const addValueToCart = (cart, value, product) => {
       if (item.id === id) {
         return {
           ...item,
-          number: Number(item.number) + Number(value)
+          number: Number(value)
         }
       }
       return item
@@ -16,34 +16,50 @@ const addValueToCart = (cart, value, product) => {
   }
   return [...cart, {...product, number: value}]
 }
+
 const Local = ({product, setState}) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
+  // const [count, setCount] = useState(0);
+
+
+
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setValue(+e.target.value);
+    if (e.target.value > product.total) {
+      return setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
+    }
+    setError(null)
   };
+
   const handleClick = (e) => {
     e.preventDefault();
     if (value > product.total) {
       console.log('ne mojno')
-      setError('Erorr')
+      // document.getElementById("AddToCart").disable = true;
     } else {
       console.log('mojno')
-      setState((prevState) => ({...prevState, cart: addValueToCart(prevState.cart, value, product)}))
+      setState((prevState) => {
+        const {cart} = prevState
+        const el = cart.find(el => el.id === product.id)
+        const actualValue = el ? Number(value) + Number(el.number) : value;
+        const valueForItem = el && el.total < actualValue ? el.number : actualValue;
+        const isEnough = el ? el.total > value + el.number : true;
+        if (!isEnough) setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
+        return ({...prevState, cart: addValueToCart(prevState.cart, valueForItem, product)})
+      })
     }
-
   };
 
   return (
     <form>
       <div>
         <input value={value} onChange={handleChange} id="number" name="number" type="number"/>
-        <button onClick={handleClick}>Add to cart</button>
+        <button onClick={handleClick} id={"AddToCart"}>Add to cart</button>
         {error && <p>{error}</p>}
       </div>
     </form>
   )
 }
-
 
 export default Local

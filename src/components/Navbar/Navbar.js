@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "./styles.module.scss";
 
 import {Navbar} from 'react-bootstrap'
 import {Link} from "react-router-dom";
 
-import styles from "./styles.module.scss";
+import CartCount from "../CartCount"
 
-const NavbarNew = () => {
+const NavbarNew = ({numberOfCart}) => {
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -17,7 +18,7 @@ const NavbarNew = () => {
                     <div className={styles.right}>
                         <Link to="/SignUp">SignUp</Link>
                         <Link to="/SignIn">SignIn</Link>
-                        <Link to="/Cart">Cart</Link>
+                        <Link to="/Cart">Cart(<CartCount numberOfCart={numberOfCart} />)</Link>
                     </div>
                 </Navbar.Collapse>
             </div>

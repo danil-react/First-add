@@ -4,15 +4,20 @@
 }
 
 .card {
-  margin-top: 10px;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: 600px;
-  height: 600px;
+  display: flex;
+  position: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
+  width: auto;
+  height: auto;
+
+
 }
 
 .cardImage {
-  width: 100%;
+  width: 500px;
   height: 500px;
 }

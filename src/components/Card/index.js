@@ -23,25 +23,37 @@ const CardNew = ({products, onOpen}) => {
   return (
     <div className={styles.card}>
       {products.map((item, index) => (
+        <div className={styles.oneCard}>
         <Card className={classes.root}>
-          <CardActionArea onClick={() => {
-            onOpen(index)
-          }}>
-            <CardMedia
-              className={styles.cardImage}
-              image={item.img}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                ${item.price}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+
+            <CardActionArea onClick={() => {
+              onOpen(index)
+            }}>
+              <div>
+                <CardMedia
+                  className={styles.cardImage}
+                  image={item.img}
+                  title="Contemplative Reptile"
+                />
+              </div>
+              <div className={styles.content}>
+                <CardContent>
+                  <div className={styles.title}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {item.title}
+                    </Typography>
+                  </div>
+                  <div className={styles.price}>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      ${item.price}
+                    </Typography>
+                  </div>
+                </CardContent>
+              </div>
+            </CardActionArea>
+
         </Card>
+        </div>
       ))}
     </div>
   );

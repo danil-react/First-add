@@ -51,7 +51,7 @@ const SignUp = props => {
                 <div className="SignUpForm">
                     <div className={styles.container}>
                         <Container>
-                            <h1 className="SignInHeading">Create an account</h1>
+                            <h1 className={styles.SignInHeading}>Create an account</h1>
                             <div className={styles.form}>
                                 <Form noValidate onSubmit={handleSubmit}>
                                     <Form.Group controlId="formBasicUserName">
@@ -116,9 +116,11 @@ const SignUp = props => {
                                         {errors.confirmPassword}
                                     </Form.Control.Feedback>
                                     </Form.Group>
-                                    <Button variant="primary" className="SignUpButton" type="submit">
-                                        Sign Up
+                                  <div className={styles.button}>
+                                    <Button className={styles.SignUpButton} type="submit">
+                                      Register
                                     </Button>
+                                  </div>
                                 </Form>
                             </div>
                         </Container>

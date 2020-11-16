@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CartCount = () => {
+const CartCount = ({numberOfCart}) => {
 
   return (
     <div>
-      <p>0</p>
+      <p>{numberOfCart}</p>
     </div>
   );
 }

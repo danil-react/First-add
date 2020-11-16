@@ -69,10 +69,11 @@ export default function BasicExample() {
 
   const {cart} = state;
 
+  const numberOfCart = cart.map(item => item.number).reduce((acc,item) => {return acc + item}, 0)
   return (
     <Router>
       <div>
-        <NavbarNew/>
+        <NavbarNew numberOfCart={numberOfCart} />
         <Switch>
           <Route exact path="/">
             <Home setState={setState}/>

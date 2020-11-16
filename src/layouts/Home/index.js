@@ -19,7 +19,6 @@ const Home = ({setState}) => {
   const [toggle, setToggle] = useState(false);
 
   const closeModal = () => {
-    // setModal(null);
     setToggle(false)
   }
   const openModal = (index) => {

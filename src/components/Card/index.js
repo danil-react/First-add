@@ -37,7 +37,7 @@ const CardNew = ({products, onOpen}) => {
                 {item.title}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {item.price}
+                ${item.price}
               </Typography>
             </CardContent>
           </CardActionArea>

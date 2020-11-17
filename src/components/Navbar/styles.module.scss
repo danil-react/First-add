@@ -13,7 +13,7 @@
   height: 100px;
 
   header {
-    background: white !important;
+    background: white;
   }
 }
 
@@ -22,21 +22,15 @@
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-
-  h6 {
-    width: 170px;
-    height: 50px;
-    color: black;
-  }
+  justify-content: flex-end;
 
   a {
     width: 170px;
+    text-decoration: none;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    color: black;
   }
 
   a:hover {
@@ -45,11 +39,9 @@
     background: #e0e0e0;
     width: 170px;
     height: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
+
 
 .right {
   width: 100%;
@@ -58,14 +50,6 @@
   align-items: center;
   justify-content: flex-end;
 
-  h6 {
-    color: black;
-  }
-
-  svg {
-    color: black;
-  }
-
   a {
     width: 170px;
     text-decoration: none;
@@ -81,8 +65,38 @@
     background: #e0e0e0;
     width: 170px;
     height: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+}
+
+
+
+@media(max-width: 768px) {
+  .nav{
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+  .left {
+    flex-direction: column;
+    a{
+      display: block;
+      height: 22px;
+      width: 170px;
+    }
+    a:hover {
+
+      height: 22px;
+    }
+  }
+  .right {
+    flex-direction: column;
+    a{
+      display: block;
+      height: 22px;
+      width: 170px;
+    }
+    a:hover {
+
+      height: 22px;
+    }
   }
 }

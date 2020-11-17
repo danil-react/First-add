@@ -14,7 +14,7 @@ const Cart = ({cart, setState}) => {
         <div className={styles.upper}>
           <CardCart cart={cart} setState={setState}/>
         </div>
-        <div className={styles.upper}>
+        <div className={styles.downer}>
           <CartPay cart={cart} setState={setState}/>
         </div>
       </div>

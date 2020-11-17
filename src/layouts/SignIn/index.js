@@ -20,20 +20,20 @@ const SignIn = () => {
                                             type="email"
                                             placeholder="Email"
                                             name="email"
-                                            className="SignUpFormControls"
+                                            className="signUpFormControls"
                                             size="lg"
                                         />
                                     </Form.Group>
                                     <Form.Group controlId="formBasicPassword">
                                         <Form.Control
-                                            className="SignUpFormControls"
+                                            className="signUpFormControls"
                                             size="lg"
                                             type="password"
                                             name="password"
                                             placeholder="Password"
                                         />
                                     </Form.Group>
-                                    <Button variant="primary" className={styles.SignUpButton} type="submit">
+                                    <Button variant="primary" className={styles.signUpButton} type="submit">
                                         Sign In
                                     </Button>
                                 </Form>

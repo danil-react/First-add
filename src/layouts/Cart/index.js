@@ -1,10 +1,10 @@
 import React from "react";
-
 import styles from "./styles.module.scss";
-import Container from "@material-ui/core/Container";
+
 import CardCart from "../../components/CardCart/index"
 import CartPay from "../../components/CartPay/index"
 
+import Container from "@material-ui/core/Container";
 const Cart = ({cart, setState}) => {
 
 

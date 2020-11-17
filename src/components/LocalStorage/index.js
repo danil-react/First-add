@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const addValueToCart = (cart, value, product) => {
   const {id} = product;
@@ -20,9 +21,6 @@ const addValueToCart = (cart, value, product) => {
 const Local = ({product, setState}) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
-  // const [count, setCount] = useState(0);
-
-
 
   const handleChange = (e) => {
     setValue(+e.target.value);
@@ -36,7 +34,6 @@ const Local = ({product, setState}) => {
     e.preventDefault();
     if (value > product.total) {
       console.log('ne mojno')
-      // document.getElementById("AddToCart").disable = true;
     } else {
       console.log('mojno')
       setState((prevState) => {
@@ -55,7 +52,7 @@ const Local = ({product, setState}) => {
     <form>
       <div>
         <input value={value} onChange={handleChange} id="number" name="number" type="number"/>
-        <button onClick={handleClick} id={"AddToCart"}>Add to cart</button>
+        <button onClick={handleClick} id={"AddToCart"}><AddShoppingCartIcon />Add to cart</button>
         {error && <p>{error}</p>}
       </div>
     </form>

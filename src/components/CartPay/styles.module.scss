@@ -1,0 +1,109 @@
+.container {
+  border-color: #e50404;
+  border-width: 2px;
+  border-radius: 2px;
+  width: 1000px;
+}
+
+.goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: #d5d5d5;
+  border-width: 2px;
+}
+
+.left {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.cardPrice {
+  font-size: 30px;
+  color: #6e6e6e;
+}
+
+.checkOut {
+  padding-right: 20px;
+  button{
+    width: 125px;
+    color: white;
+    background-color: black;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container{
+    width: 350px
+  }
+  .cardPrice {
+    font-size: 20px;
+    color: #6e6e6e;
+  }
+
+  .checkOut {
+    padding-right: 20px;
+
+    button {
+      width: 65px;
+      font-size: 10px;
+      color: white;
+      background-color: black;
+      height: 40px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container{
+    width: 320px
+  }
+  .cardPrice {
+    font-size: 20px;
+    color: #6e6e6e;
+  }
+
+  .checkOut {
+    padding-right: 20px;
+
+    button {
+      width: 65px;
+      font-size: 10px;
+      color: white;
+      background-color: black;
+      height: 40px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container{
+    width: 275px
+  }
+  .cardPrice {
+    font-size: 20px;
+    color: #6e6e6e;
+  }
+
+  .checkOut {
+    padding-right: 20px;
+
+    button {
+      width: 65px;
+      font-size: 10px;
+      color: white;
+      background-color: black;
+      height: 40px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 const CartPay = ({cart, setState}) => {
 
@@ -18,8 +18,8 @@ const CartPay = ({cart, setState}) => {
             <a>Sub total:</a>{`$${subTotal}`}
           </div>
         </div>
-        <div className={styles.deleted}>
-          {/*<button type="button" onClick={() => handleClick(item.id)}>x</button>*/}
+        <div className={styles.checkOut}>
+          <button type="button">Check out</button>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "../ModalCard/styles.module.scss"
+import styles from "./styles.module.scss";
 
 import Local from "../LocalStorage/index"
 
 const ModalCard = (props) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.upper}>
         <div className={styles.img}>
           {props.selectedProduct && <img src={props.selectedProduct.img}/>}
@@ -20,7 +20,7 @@ const ModalCard = (props) => {
           <div className={styles.uniqueId}>
             <a>SKU: BLE1000BLU</a>
           </div>
-          <div className={styles.buyForm}>
+          <div className={styles.checkOutForm}>
             <Local product={props.selectedProduct} setState={props.setState}/>
           </div>
         </div>

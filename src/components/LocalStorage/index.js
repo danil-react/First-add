@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import styles from "./styles.module.scss"
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const addValueToCart = (cart, value, product) => {
@@ -33,9 +34,7 @@ const Local = ({product, setState}) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (value > product.total) {
-      console.log('ne mojno')
     } else {
-      console.log('mojno')
       setState((prevState) => {
         const {cart} = prevState
         const el = cart.find(el => el.id === product.id)
@@ -51,9 +50,15 @@ const Local = ({product, setState}) => {
   return (
     <form>
       <div>
-        <input value={value} onChange={handleChange} id="number" name="number" type="number"/>
+        <input value={value}
+               onChange={handleChange}
+               id="number"
+               name="number"
+               type="number"
+        />
         <button onClick={handleClick} id={"AddToCart"}><AddShoppingCartIcon />Add to cart</button>
-        {error && <p>{error}</p>}
+
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     </form>
   )

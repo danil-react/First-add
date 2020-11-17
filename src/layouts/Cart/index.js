@@ -9,15 +9,16 @@ const Cart = ({cart, setState}) => {
 
 
   return (
-    <div className={styles.container}>
-      <Container>
-        <CardCart cart={cart} setState={setState}/>
-        <br/>
-        <br/>
-        <br/>
-        <CartPay cart={cart} setState={setState}/>
-      </Container>
-    </div>
+    <Container>
+      <div className={styles.container}>
+        <div className={styles.upper}>
+          <CardCart cart={cart} setState={setState}/>
+        </div>
+        <div className={styles.upper}>
+          <CartPay cart={cart} setState={setState}/>
+        </div>
+      </div>
+    </Container>
   );
 }
 

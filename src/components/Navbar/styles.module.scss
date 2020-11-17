@@ -1,5 +1,5 @@
 .nav {
-  max-width: 1200px;
+  max-width: 1800px;
   width: 90%;
   margin: auto;
   height: 80px;
@@ -18,17 +18,18 @@
 }
 
 .left {
-  max-width: 1200px;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
   h6 {
     width: 170px;
     height: 50px;
     color: black;
   }
+
   a {
     width: 170px;
     display: flex;
@@ -37,6 +38,7 @@
     text-decoration: none;
     color: black;
   }
+
   a:hover {
     text-decoration: none;
     color: black;
@@ -50,18 +52,20 @@
 }
 
 .right {
-  max-width: 1200px;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
   h6 {
     color: black;
   }
+
   svg {
     color: black;
   }
+
   a {
     width: 170px;
     text-decoration: none;
@@ -70,6 +74,7 @@
     justify-content: center;
     align-items: center;
   }
+
   a:hover {
     text-decoration: none;
     color: black;
@@ -79,29 +84,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .navbar {
-    width: 375px;
-    header {
-      width: 375px;
-    }
-    .header {
-      width: calc(100% - 100px);
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .navbar {
-    width: 1024px;
-    header {
-      width: 1024px;
-    }
-    .header {
-      width: 100%;
-    }
   }
 }

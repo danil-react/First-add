@@ -1,23 +1,155 @@
 .main {
-  display: flex;
-  justify-content: center;
 }
 
 .card {
   display: flex;
-  position: center;
-  justify-content: flex-start;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-content: stretch;
-  align-items: stretch;
-  width: auto;
-  height: auto;
+  padding-left: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
 
-
+.oneCard{
+  display: flex;
+  justify-content: center;
+  margin: 20px
 }
 
 .cardImage {
   width: 500px;
   height: 500px;
+  padding-left: 50px;
+}
+
+@media screen and (max-width: 2560px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .cardImage {
+    width: 550px;
+    height: 550px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin: 20px
+  }
+  .cardImage {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin: 20px
+  }
+  .cardImage {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    margin-right: 1px;
+    margin-left: 15px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin: 20px
+  }
+  .cardImage {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .cardImage {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .cardImage {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  .oneCard{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .cardImage {
+    width: 250px;
+    height: 250px;
+  }
 }

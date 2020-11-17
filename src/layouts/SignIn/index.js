@@ -12,7 +12,7 @@ const SignIn = () => {
                 <div className="SignInForm">
                     <div className={styles.container}>
                         <Container>
-                            <h1 className="SignInHeading">Log in to your account</h1>
+                            <h1 className={styles.SignInHeading}>Log in to your account</h1>
                             <div className={styles.form}>
                                 <Form>
                                     <Form.Group controlId="formBasicEmail">
@@ -33,7 +33,7 @@ const SignIn = () => {
                                             placeholder="Password"
                                         />
                                     </Form.Group>
-                                    <Button variant="primary" className="SignUpButton" type="submit">
+                                    <Button variant="primary" className={styles.SignUpButton} type="submit">
                                         Sign In
                                     </Button>
                                 </Form>

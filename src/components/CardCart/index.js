@@ -14,7 +14,7 @@ const CardCart = ({cart, setState}) => {
         {cart.map(item => {
           return (
             <>
-              <div className={styles.container}>
+              <div className={styles.container} key={item.id}>
                 <div className={styles.left}>
                   <div className={styles.img}>
                     <img src={item.img}/>

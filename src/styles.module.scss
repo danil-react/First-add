@@ -1,8 +1,13 @@
+.modal {
+  width: 10000px;
+}
+
 .logo {
   display: flex;
   justify-content: center;
+  padding-top: 20px;
   img {
-    width: 80%;
-    max-width: 1024px;
+    width: 50%;
+    max-width: 2300px;
   }
 }

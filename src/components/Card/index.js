@@ -8,43 +8,54 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 
 const CardNew = ({products, onOpen}) => {
+  const useStyles = makeStyles({
+    root: {
+      maxWidth: 700,
+    },
+    media: {
+      height: 200,
+    },
+  });
 
-    const useStyles = makeStyles({
-        root: {
-            maxWidth: 700,
-        },
-        media: {
-            height: 200,
-        },
-    });
 
-    const classes = useStyles();
+  const classes = useStyles();
+  return (
+    <div className={styles.card}>
+      {products.map((item, index) => (
+        <div className={styles.oneCard}>
+        <Card className={classes.root}>
 
-    return (
-        <div className={styles.card}>
-            {products.map((item, index) => (
-                <Card className={classes.root}>
-                    <CardActionArea onClick={() => {
-                        onOpen(index)
-                    }}>
-                        <CardMedia
-                            className={styles.cardImage}
-                            image={item.img}
-                            title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {item.title}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                {item.price}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            ))}
+            <CardActionArea onClick={() => {
+              onOpen(index)
+            }}>
+              <div>
+                <CardMedia
+                  className={styles.cardImage}
+                  image={item.img}
+                  title="Contemplative Reptile"
+                />
+              </div>
+              <div className={styles.content}>
+                <CardContent>
+                  <div className={styles.title}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {item.title}
+                    </Typography>
+                  </div>
+                  <div className={styles.price}>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      ${item.price}
+                    </Typography>
+                  </div>
+                </CardContent>
+              </div>
+            </CardActionArea>
+
+        </Card>
         </div>
-    );
+      ))}
+    </div>
+  );
 }
 
 export default CardNew;

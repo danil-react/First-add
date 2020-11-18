@@ -1,67 +1,57 @@
 .nav {
-  max-width: 1200px;
-  width: 90%;
+  width: 70%;
   margin: auto;
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-}
-
-.header {
-  max-width: 100%;
-  height: 100px;
-
-  header {
-    background: white !important;
-  }
+  justify-content: space-between;
 }
 
 .left {
-  max-width: 1200px;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  h6 {
-    width: 170px;
-    height: 50px;
-    color: black;
-  }
+
   a {
     width: 170px;
+    text-decoration: none;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    color: black;
   }
+
   a:hover {
     text-decoration: none;
     color: black;
     background: #e0e0e0;
     width: 170px;
     height: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &:after {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: -15px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 12.5px 0 12.5px;
+      border-color: #e0e0e0 transparent ;
+    }
   }
 }
 
 .right {
-  max-width: 1200px;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  h6 {
-    color: black;
-  }
-  svg {
-    color: black;
-  }
+p{
+  padding-top: 14px;
+}
   a {
     width: 170px;
     text-decoration: none;
@@ -70,38 +60,132 @@
     justify-content: center;
     align-items: center;
   }
+
   a:hover {
     text-decoration: none;
     color: black;
     background: #e0e0e0;
     width: 170px;
     height: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .navbar {
-    width: 375px;
-    header {
-      width: 375px;
-    }
-    .header {
-      width: calc(100% - 100px);
+    &:after {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: -15px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 12.5px 0 12.5px;
+      border-color: #e0e0e0 transparent ;
     }
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .navbar {
-    width: 1024px;
-    header {
-      width: 1024px;
+@media(max-width: 991px) {
+  .icon{
+    visibility: hidden;
+    display: none;
+  }
+  .nav{
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+  .left {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    a{
+      display: flex;
+      height: 22px;
+      width: 300px;
+      justify-content: flex-start;
     }
-    .header {
-      width: 100%;
+    a:hover {
+      height: 22px;
+      background-color: transparent;
+      color: red;
+      font-weight: bold;
+
+    }
+  }
+  .right {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    a{
+      display: flex;
+      height: 22px;
+      width: 170px;
+      justify-content: flex-start;
+    }
+    a:hover {
+      background-color: transparent;
+      color: red;
+      height: 22px;
+      font-weight: bold;
     }
   }
 }
+
+@media(max-width: 768px) {
+  .icon{
+    visibility: hidden;
+    display: none;
+  }
+  .nav{
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+  .left {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    a{
+      display: flex;
+      height: 22px;
+      width: 300px;
+      justify-content: flex-start;
+    }
+    a:hover {
+      height: 22px;
+      background-color: transparent;
+      color: red;
+      font-weight: bold;
+
+    }
+  }
+  .right {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    a{
+      display: flex;
+      height: 22px;
+      width: 170px;
+      justify-content: flex-start;
+    }
+    a:hover {
+      background-color: transparent;
+      color: red;
+      height: 22px;
+      font-weight: bold;
+    }
+  }
+}
+
+.navbar{
+  width: 100%;
+}
+

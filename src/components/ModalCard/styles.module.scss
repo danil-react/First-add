@@ -1,11 +1,230 @@
-.modal {
-
+.upper {
+  display: flex;
+  justify-content: space-between;
 }
 
-.img{
+.img {
+  display: flex;
+  justify-content: flex-start;
+  height: 450px;
 
+  img {
+    width: 400px;
+    height: 450px;
+  }
 }
 
-.info{
+.upperRight {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px;
+  font-size: 20px;
+}
 
+.title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.price {
+  margin-bottom: 7px;
+}
+
+.uniqueId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+  border-radius: 3px;
+  background: #e6e6e6;
+  max-width: 200px;
+}
+
+.checkOutForm {
+  button {
+    background-color: #eb7b13;
+    border-color: #eb7b13;
+  }
+}
+
+.downer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  font-size: 20px;
+}
+
+.about {
+  font-weight: bold;
+}
+
+.info {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 2560px) {
+  .img {
+    padding-right: 500px;
+  }
+  .upperRight {
+    width: 1000px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .img {
+    padding-right: 10px;
+  }
+  .upperRight {
+    margin: 10px;
+    width: 500px;
+
+    input {
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .img {
+    height: 350px;
+    img {
+      width: 300px;
+      height: 350px;
+    }
+  }
+  .upperRight {
+    margin: 10px;
+    width: 500px;
+    input {
+      width: 200px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img {
+    height: 250px;
+    img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+  .upperRight {
+    margin: 10px;
+    width: 500px;
+    input {
+      width: 200px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .upper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .img {
+    height: 250px;
+    img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+  .upperRight {
+    margin: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 200px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+  .downer {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .upper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .img {
+    height: 250px;
+    img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+  .upperRight {
+    margin: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 180px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+  .downer {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+  .uniqueId {
+    width: 180px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .upper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .img {
+    height: 250px;
+    img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+  .upperRight {
+    margin: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 150px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+  .downer {
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+  .uniqueId {
+    width: 150px;
+    font-size: 15px;
+  }
 }

@@ -15,14 +15,14 @@ const NavbarNew = ({numberOfCart}) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <div className={styles.nav}>
-              <Nav >
+              <Nav className={styles.navbar}>
                 <div className={styles.left}>
-                    <NavLink to="/" activeClassName={styles.active}><LoyaltyIcon />Starter Store</NavLink>
+                    <NavLink to="/" activeClassName={styles.active}><LoyaltyIcon className={styles.icon} />Starter Store</NavLink>
                 </div>
                 <div className={styles.right}>
                     <NavLink to="/SignUp" className={styles.active}>Sign Up</NavLink>
                     <NavLink to="/SignIn" className={styles.active}>Sign In</NavLink>
-                    <NavLink to="/Cart" className={styles.active}><ShoppingCartIcon />Cart(<CartCount numberOfCart={numberOfCart}/>)</NavLink>
+                    <NavLink to="/Cart" className={styles.active}><ShoppingCartIcon className={styles.icon} />Cart(<CartCount numberOfCart={numberOfCart}/>)</NavLink>
                 </div>
               </Nav>
             </div>

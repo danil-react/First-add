@@ -7,27 +7,12 @@
   justify-content: space-between;
 }
 
-//.activeTab {
-//  display: block;
-//  position: absolute;
-//  content: '';
-//  bottom: -20px;
-//  border-style: solid;
-//  border-width: 20px 12.5px 0 12.5px;
-//  border-color: red transparent ;
-//  text-decoration: none;
-//  color: black;
-//  background: #e0e0e0;
-//  width: 170px;
-//  height: 96px;
-//}
-
 .left {
   width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   a {
     width: 170px;
@@ -96,34 +81,11 @@ p{
   }
 }
 
-@media(max-width: 2560px) {
-  .left{
-    padding-left: 200px;
+@media(max-width: 991px) {
+  .icon{
+    visibility: hidden;
+    display: none;
   }
-  .right{
-    padding-left: 650px;
-  }
-}
-
-@media(max-width: 1440px) {
-  .left{
-    padding-left: 10px;
-  }
-  .right{
-    padding-left: 400px;
-  }
-}
-
-@media(max-width: 1024px) {
-  .left{
-    padding-left: 1px;
-  }
-  .right{
-    padding-left: 60px;
-  }
-}
-
-@media(max-width: 768px) {
   .nav{
     margin-top: 20px;
     margin-left: 3px;
@@ -132,10 +94,13 @@ p{
     flex-direction: column;
     padding-left: 1px;
     margin-top: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
     a{
-      display: block;
+      display: flex;
       height: 22px;
       width: 300px;
+      justify-content: flex-start;
     }
     a:hover {
       height: 22px;
@@ -150,10 +115,14 @@ p{
     padding-left: 1px;
     margin-top: 5px;
     margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
     a{
-      display: block;
+      display: flex;
       height: 22px;
       width: 170px;
+      justify-content: flex-start;
     }
     a:hover {
       background-color: transparent;
@@ -162,5 +131,61 @@ p{
       font-weight: bold;
     }
   }
+}
+
+@media(max-width: 768px) {
+  .icon{
+    visibility: hidden;
+    display: none;
+  }
+  .nav{
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+  .left {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    a{
+      display: flex;
+      height: 22px;
+      width: 300px;
+      justify-content: flex-start;
+    }
+    a:hover {
+      height: 22px;
+      background-color: transparent;
+      color: red;
+      font-weight: bold;
+
+    }
+  }
+  .right {
+    flex-direction: column;
+    padding-left: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    a{
+      display: flex;
+      height: 22px;
+      width: 170px;
+      justify-content: flex-start;
+    }
+    a:hover {
+      background-color: transparent;
+      color: red;
+      height: 22px;
+      font-weight: bold;
+    }
+  }
+}
+
+.navbar{
+  width: 100%;
 }
 

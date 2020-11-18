@@ -58,7 +58,7 @@ const arr = [
   },
 ]
 
-export default function BasicExample() {
+const BasicExample = () => {
   useLayoutEffect(() => {
     localStorage.setItem('products', JSON.stringify(arr))
   }, [])
@@ -87,19 +87,10 @@ export default function BasicExample() {
           <Route path="/signUp">
             <SignUp/>
           </Route>
-          <Route path="/dashboard">
-            <Dashboard/>
-          </Route>
         </Switch>
       </div>
     </Router>
   );
 }
 
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
-}
+export default BasicExample

@@ -1,0 +1,40 @@
+{
+  "name": "first-node",
+  "version": "1.0.0",
+  "description": "Second part of the internship",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "server": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danil-react/First-Node.js.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Kukharenko D.S.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danil-react/First-Node.js/issues"
+  },
+  "homepage": "https://github.com/danil-react/First-Node.js#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cars": "^1.1.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.6"
+  }
+}

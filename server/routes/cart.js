@@ -1,0 +1,11 @@
+const express = require('express')
+const controller = require('../controllers/cart')
+const passport = require('passport')
+const router = express.Router()
+
+router.get('/', passport.authenticate('jwt', {session: false}), controller.getAll)
+router.post('/', passport.authenticate('jwt', {session: false}), controller.postOne)
+router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.remove)
+router.checkout('/', passport.authenticate('jwt', {session: false}), controller.checkOut)
+
+module.exports = router

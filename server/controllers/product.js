@@ -21,61 +21,26 @@ module.exports.getOne = async function (req, res) {
         message: 'not found'
       })
     }
-
   } catch (e) {
     errorHandler(res, e)
   }
 }
 
-module.exports.create = async function (req, res) {
-  try {
-    const cartObject = await new Cart({
-      id: req.cart.id,
-      title: req.cart.title,
-      total: req.cart.total
-    });
-    await cartObject.save();
-    res.status(201).json({
-      cleaner: cartObject
-    })
-    //remove total for product
-    // res.status(201).json(carts)
-  } catch (e) {
-    errorHandler(res, e)
-  }
-};
-
-// const candidate = await User.findOne({
-//   email: body.email
-// });
-// if (candidate) {
-//   const checkProduct = await Products.findOne({
-//     title: product.title
-//   });
-//   if (checkProduct) {
-//     res.status(409).json({
-//       message: 'such an name is already taken'
-//     })
-//   } else {
-//     let productObject = new Cleaner({
-//       id: product.id,
-//       img: product.img,
-//       title: product.title,
-//       price: product.price,
-//       info: product.info,
-//       total: product.total
+// module.exports.create = async function (req, res) {
+//   try {
+//     const cartObject = await new Cart({
+//       id: req.cart.id,
+//       title: req.cart.title,
+//       total: req.cart.total
 //     });
-//     try {
-//       await productObject.save();
-//       res.status(201).json({
-//         cleaner: productObject
-//       })
-//     } catch (e) {
-//       errorHandler(res, e)
-//     }
+//     await cartObject.save();
+//     res.status(201).json({
+//       cart: cartObject
+//     })
+//     //remove total for product
+//     // res.status(201).json(carts)
+//   } catch (e) {
+//     errorHandler(res, e)
 //   }
-// } else {
-//   res.status(403).json({
-//     message: 'permission denied'
-//   })
-// }
+// };
+

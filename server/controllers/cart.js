@@ -1,11 +1,11 @@
-const Cart = require('../models/User')
+const User = require('../models/User')
 const Products = require('../models/Product')
 const errorHandler = require('../utils/errorHandler')
 
 module.exports.getAll = async function (req, res) {
   try {
-    const products = await Products.find();
-    res.status(201).json(products)
+    const carts = await User.find()
+    res.status(201).json(carts.cart)
   } catch (e) {
     errorHandler(res, e)
   }
@@ -13,7 +13,21 @@ module.exports.getAll = async function (req, res) {
 
 module.exports.postOne = async function (req, res) {
   try {
-
+    await User.update({
+        _id: req.user.id,},
+      {
+        $push:{
+          cart:[
+            {
+              productId:req.body.product,
+              title: req.body.title,
+              total: req.body.total
+            }
+          ]
+        }
+      })
+    const carts = await User.findOne({_id: req.user.id})
+    res.status(201).json(carts)
   } catch (e) {
     errorHandler(res, e)
   }
@@ -21,8 +35,8 @@ module.exports.postOne = async function (req, res) {
 
 module.exports.remove = async function (req, res) {
   try {
-    await Cart.remove({_id: req.params.id})
-    await Products.remove({product: req.params.id})
+    await User.updateOne({_id: req.user.id}, {$pull:{cart:{productId: req.body.productId}}})
+    //return total in product
     res.status(200).json({
       message: 'product deleted'
     })
@@ -33,7 +47,7 @@ module.exports.remove = async function (req, res) {
 
 module.exports.checkOut = async function (req, res) {
   try {
-
+    await User.updateOne({_id: req.user.id}, {$pull:{cart:{productId: req.body.productId}}})
   } catch (e) {
     errorHandler(res, e)
   }

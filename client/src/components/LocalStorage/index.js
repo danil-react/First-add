@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styles from "./styles.module.scss"
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
+
 const addValueToCart = (cart, value, product) => {
   const {id} = product;
   const isProductExist = cart.some(item => item.id === id);

@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState, useLayoutEffect} from "react";
 import {Form} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import {Alert} from 'react-bootstrap'
-
+import { withRouter } from 'react-router'
 import * as yup from "yup";
 import {Formik} from "formik";
 import styles from "./styles.module.scss";
@@ -30,7 +30,7 @@ const schema = yup.object({
 
 
 
-const SignUp = props => {
+const SignUp = ({history}) => {
   const [error, setError] = useState(null)
   const [counter, setCounter] = useState(5)
 
@@ -51,9 +51,7 @@ const SignUp = props => {
       console.log(data)
       user = {
         name:data.name,
-
       }
-      alert(`good`)
       ApiService.post({
         resource: `auth/login`,
         params: {
@@ -61,21 +59,14 @@ const SignUp = props => {
         }
       }).then((data)=>{
         console.log(data)
-        user = {...user, token: data.token}
-        console.log(data)
+        localStorage.setItem('token',data.data.token)
+        history.push('/')
       })
     })
       .catch((e)=>{
         e && console.log(e.message)
-
         setError(e.message)
-
-
-        // function App
-        // alert(`not good${JSON.parse(e.message)}`)
       })
-
-    // console.log(data)
     }, []);
 
 useEffect(()=>{
@@ -183,7 +174,7 @@ useEffect(()=>{
                                 </Form>
                             </div>
                         </Container>
-                      {error&&<Alert variant={"danger"} closeLabel="asdsadsaada" onClose={() => setError(false)} show={error}>
+                      {error&&<Alert variant={"danger"} onClose={() => setError(false)} show={error}>
                         {error}
                       </Alert>}
                     </div>
@@ -192,4 +183,4 @@ useEffect(()=>{
     );
 };
 
-export default SignUp;
+export default withRouter (SignUp);

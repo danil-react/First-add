@@ -1,5 +1,4 @@
 const Products = require('../models/Product')
-const User = require('../models/User')
 const errorHandler = require('../utils/errorHandler')
 
 module.exports.getAll = async function (req, res) {
@@ -13,7 +12,8 @@ module.exports.getAll = async function (req, res) {
 
 module.exports.getOne = async function (req, res) {
   try {
-    const product = await Products.findById(req.body.id);
+    const product = await Products.findOne({_id: req.params.id})
+    console.log(product)
     if (product) {
       res.status(200).json(product)
     } else {
@@ -26,21 +26,19 @@ module.exports.getOne = async function (req, res) {
   }
 }
 
-// module.exports.create = async function (req, res) {
-//   try {
-//     const cartObject = await new Cart({
-//       id: req.cart.id,
-//       title: req.cart.title,
-//       total: req.cart.total
-//     });
-//     await cartObject.save();
-//     res.status(201).json({
-//       cart: cartObject
-//     })
-//     //remove total for product
-//     // res.status(201).json(carts)
-//   } catch (e) {
-//     errorHandler(res, e)
-//   }
-// };
+module.exports.create = async function (req, res) {
+  try {
+    const productObject = new Products({
+      img: req.body.img,
+      title: req.body.title,
+      price: req.body.price,
+      info: req.body.info,
+      total: req.body.total
+    });
+    await productObject.save();
+    res.status(201).json(productObject)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+};
 

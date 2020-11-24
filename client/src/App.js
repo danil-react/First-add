@@ -69,11 +69,13 @@ const BasicExample = () => {
 
   const {cart} = state;
 
-  const numberOfCart = cart.map(item => item.number).reduce((acc,item) => {return acc + item}, 0)
+  const numberOfCart = cart.map(item => item.number).reduce((acc, item) => {
+    return acc + item
+  }, 0)
   return (
     <Router>
       <div>
-        <NavbarNew numberOfCart={numberOfCart} />
+        <NavbarNew numberOfCart={numberOfCart}/>
         <Switch>
           <Route exact path="/">
             <Home setState={setState}/>

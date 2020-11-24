@@ -6,7 +6,6 @@ import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
 import ApiService from "../../api/base";
 
-
 const SignIn = ({history}) => {
 
   const [error, setError] = useState(null)
@@ -57,7 +56,15 @@ const SignIn = ({history}) => {
     <div className="SignInForm">
       <div className={styles.container}>
         <Container>
-          <h1 className={styles.SignInHeading}>Log in to your account</h1>
+          <div className={styles.alert}>
+            <h1 className={styles.SignInHeading}>Log in to your account</h1>
+            {error && <Alert
+              variant={"danger"}
+              closeLabel="asdsadsaada"
+              onClose={() => setError(false)} show={error}>
+              {error}
+            </Alert>}
+          </div>
           <div className={styles.form}>
             <Form>
               <Form.Group controlId="formBasicEmail">
@@ -88,9 +95,6 @@ const SignIn = ({history}) => {
                 Sign In
               </Button>
             </Form>
-            {error && <Alert variant={"danger"} closeLabel="asdsadsaada" onClose={() => setError(false)} show={error}>
-              {error}
-            </Alert>}
           </div>
         </Container>
       </div>

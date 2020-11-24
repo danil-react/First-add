@@ -46,7 +46,7 @@ module.exports.remove = async function (req, res) {
   try {
     await User.updateOne({_id: req.user.id}, {$pull: {cart: {productId: req.body.productId}}})
     const product = Products.findById(req.body.product)
-    await Products.update({_id: req.body.product}, {$set:{total: product.total + req.body.total}})
+    await Products.update({_id: req.body.product}, {$set: {total: product.total + req.body.total}})
     res.status(200).json({
       message: 'product deleted'
     })

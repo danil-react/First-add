@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useCallback, useEffect} from "react";
 
 import Local from "../LocalStorage/index"
 
 import styles from "./styles.module.scss";
+import ApiService from "../../api/base";
 
 const ModalCard = (props) => {
+
   return (
     <div className={styles.container}>
       <div className={styles.upper}>
         <div className={styles.img}>
-          {props.selectedProduct && <img src={props.selectedProduct.img}/>}
+          {props.selectedProduct && <img src={`http://localhost:5000${props.selectedProduct.img}`}/>}
         </div>
         <div className={styles.upperRight}>
           <div className={styles.title}>

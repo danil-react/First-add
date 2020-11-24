@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
+const path =require('path')
 const bodyParser = require('body-parser')
 const authRoutes = require('./routes/auth')
 const cartRoutes = require('./routes/cart')
@@ -25,5 +26,6 @@ app.use('/api/auth', authRoutes)
 app.use('/api/cart', cartRoutes)
 app.use('/api/product', productRoutes)
 
+app.use('/img',express.static(path.join(__dirname, '/static/images')))
 
 module.exports = app

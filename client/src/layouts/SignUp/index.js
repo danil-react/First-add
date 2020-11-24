@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useCallback, useEffect, useState, useLayoutEffect} from "react";
 import {Form} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
 
 import * as yup from "yup";
 import {Formik} from "formik";
 import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
+import ApiService from "../../api/base";
 
 const schema = yup.object({
     username: yup.string().required('Please Enter a username'),
@@ -26,11 +28,68 @@ const schema = yup.object({
         .oneOf([yup.ref("password"), null], "Passwords must match")
 });
 
+
+
 const SignUp = props => {
+  const [error, setError] = useState(null)
+  const [counter, setCounter] = useState(5)
+
+  const getData = useCallback(async (values) => {
+    console.log(values)
+    let body = {
+      name: values.username,
+      email: values.email,
+      password: values.password
+    }
+    let user = {}
+    ApiService.post({
+      resource: `auth/registration`,
+      params: {
+        ...body
+      }
+    }).then(({data})=>{
+      console.log(data)
+      user = {
+        name:data.name,
+
+      }
+      alert(`good`)
+      ApiService.post({
+        resource: `auth/login`,
+        params: {
+          ...body
+        }
+      }).then((data)=>{
+        console.log(data)
+        user = {...user, token: data.token}
+        console.log(data)
+      })
+    })
+      .catch((e)=>{
+        e && console.log(e.message)
+
+        setError(e.message)
+
+
+        // function App
+        // alert(`not good${JSON.parse(e.message)}`)
+      })
+
+    // console.log(data)
+    }, []);
+
+useEffect(()=>{
+  if(error && counter){
+    setTimeout(()=>{ setCounter((prevState) => prevState - 1)},1000)
+  } else{
+    setCounter(7)
+    setError(null)
+  }
+},[error, counter])
     return (
         <Formik
             validationSchema={schema}
-            onSubmit={console.log}
+            onSubmit={(values) => getData(values)}
             initialValues={{
                 username: "",
                 email: "",
@@ -53,7 +112,7 @@ const SignUp = props => {
                         <Container>
                             <h1 className={styles.SignInHeading}>Create an account</h1>
                             <div className={styles.form}>
-                                <Form noValidate onSubmit={handleSubmit}>
+                                <Form noValidate onSubmit={handleSubmit} action="signUp" method="post">
                                     <Form.Group controlId="formBasicUserName">
                                         <Form.Control
                                             size="lg"
@@ -117,13 +176,16 @@ const SignUp = props => {
                                     </Form.Control.Feedback>
                                     </Form.Group>
                                   <div className={styles.button}>
-                                    <Button className={styles.SignUpButton} type="submit">
-                                      Register
+                                    <Button className={styles.SignUpButton} type="submit" >
+                                      Registration
                                     </Button>
                                   </div>
                                 </Form>
                             </div>
                         </Container>
+                      {error&&<Alert variant={"danger"} closeLabel="asdsadsaada" onClose={() => setError(false)} show={error}>
+                        {error}
+                      </Alert>}
                     </div>
                 </div>)}
         </Formik>

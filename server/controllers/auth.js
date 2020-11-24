@@ -30,12 +30,12 @@ module.exports.login = async function (req, res) {
   }
 }
 
-module.exports.register = async function (req, res) {
+module.exports.registration = async function (req, res) {
   const candidate = await User.findOne({email: req.body.email})
 
   if (candidate) {
     res.status(409).json({
-      message: 'This email is exist.'
+      message: "This email is exist."
     })
   } else {
     const salt = bcrypt.genSaltSync(10)

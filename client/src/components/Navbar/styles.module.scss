@@ -79,6 +79,12 @@ p{
       border-color: #e0e0e0 transparent ;
     }
   }
+  button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-right: 40px;
+  }
 }
 
 @media(max-width: 991px) {

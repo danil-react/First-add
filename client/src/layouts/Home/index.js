@@ -1,19 +1,22 @@
-import React, {useState, useLayoutEffect} from "react";
+import React, {useState, useEffect, useLayoutEffect, useCallback} from "react";
 import styles from "../../styles.module.scss";
 import Container from "@material-ui/core/Container";
 import {Modal} from "antd"
 
 import ModalCard from '../../components/ModalCard/ModalCard'
 import CardNew from '../../components/Card'
+import ApiService from "../../api/base";
 
 import Logo from "../../assets/images/lovelamp.svg";
 
+
 const Home = ({setState}) => {
   const [products, setProducts] = useState([])
+  const [selectedProduct, setSelectedProduct] = useState({})
 
-  useLayoutEffect(() => {
-    setProducts(JSON.parse(localStorage.getItem('products')))
-  }, [localStorage.getItem('products')])
+  // useLayoutEffect(() => {
+  //   setProducts(JSON.parse(localStorage.getItem('products')))
+  // }, [localStorage.getItem('products')])
 
   const [productIndex, setModal] = useState(null)
   const [toggle, setToggle] = useState(false);
@@ -21,11 +24,33 @@ const Home = ({setState}) => {
   const closeModal = () => {
     setToggle(false)
   }
-  const openModal = (index) => {
-    setModal(index)
-    setToggle(true)
+  const openModal = (index, id) => {
+    getOne(id).then(({data}) => {
+      console.log(data)
+      setSelectedProduct(data)
+      setModal(index)
+      setToggle(true)
+    })
   }
 
+  const getAll = useCallback( () => {
+    ApiService.get({
+      resource:`product/`,
+    }).then(({data}) => {
+      console.log(data)
+      setProducts(data)
+    })
+  })
+
+  const getOne = useCallback((id) => {
+   return ApiService.get({
+      resource:`product/${id}`,
+    })
+  })
+
+useEffect(() => {
+    getAll({products})
+},[])
 
   return (
     <div className={styles.container}>
@@ -46,7 +71,7 @@ const Home = ({setState}) => {
           footer={null}
           wrapClassName="sa"
         >
-          <ModalCard setClose={() => setModal(null)} selectedProduct={products[productIndex]} products={products} setState={setState}/>
+          <ModalCard setClose={() => setModal(null)} selectedProduct={selectedProduct} products={products} setState={setState}/>
         </Modal>
       </Container>
     </div>

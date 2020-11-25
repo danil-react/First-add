@@ -12,10 +12,14 @@
   align-items: center;
   flex-direction: column;
   margin: 200px;
-
   input {
     width: 1000px;
   }
+}
+
+.alert{
+  display: flex;
+  justify-content: space-between;
 }
 
 .SignUpButton {

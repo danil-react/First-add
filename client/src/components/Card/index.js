@@ -22,16 +22,16 @@ const CardNew = ({products, onOpen}) => {
   return (
     <div className={styles.card}>
       {products.map((item, index) => (
-        <div className={styles.oneCard}>
+        <div className={styles.oneCard} key={index}>
         <Card className={classes.root}>
 
             <CardActionArea onClick={() => {
-              onOpen(index)
+              onOpen(index, item._id)
             }}>
               <div>
                 <CardMedia
                   className={styles.cardImage}
-                  image={item.img}
+                  image={`http://localhost:5000${item.img}`}
                   title="Contemplative Reptile"
                 />
               </div>

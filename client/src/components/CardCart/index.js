@@ -2,12 +2,12 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
+
 const CardCart = ({cart, setState}) => {
 
   const handleClick = (id) => {
     setState(prevState => ({...prevState, cart: cart.filter(item => item.id !== id)}))
   }
-
   return (
     <div className={styles.container}>
       <div className={styles.goods}>
@@ -17,7 +17,7 @@ const CardCart = ({cart, setState}) => {
               <div className={styles.container} key={item.id}>
                 <div className={styles.left}>
                   <div className={styles.img}>
-                    <img src={item.img}/>
+                    <img src={`http://localhost:5000${item.img}`}/>
                   </div>
                   <div className={styles.info}>
                     <div className={styles.cardTitle}>

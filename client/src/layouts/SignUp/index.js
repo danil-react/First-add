@@ -28,7 +28,7 @@ const schema = yup.object({
     .oneOf([yup.ref("password"), null], "Passwords must match")
 });
 
-const SignUp = ({history}) => {
+const SignUp = ({history, setState}) => {
   const [error, setError] = useState(null)
   const [counter, setCounter] = useState(5)
 
@@ -47,6 +47,7 @@ const SignUp = ({history}) => {
       }
     }).then(({data}) => {
       console.log(data)
+
       user = {
         name: data.name,
       }

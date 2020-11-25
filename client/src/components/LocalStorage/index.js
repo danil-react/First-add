@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from "./styles.module.scss"
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-
+import ApiService from "../../api/base";
 
 const addValueToCart = (cart, value, product) => {
   const {id} = product;
@@ -24,6 +24,26 @@ const Local = ({product, setState}) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
 
+  const postOne = async (productId, title, total) => {
+     await ApiService.post({
+      resource: `cart/`,
+      params: {
+        productId: productId,
+        total: total,
+      }
+    }).then(({data, cart}) => {
+      console.log(data)
+       // const cart = JSON.parse(localStorage.getItem(cart.date.cart))
+       // if (data && data.token) {
+       //
+       // }
+    }).catch((e)=>{
+       console.log(e)
+     })
+  }
+
+
+
   const handleChange = (e) => {
     setValue(+e.target.value);
     if (e.target.value > product.total) {
@@ -32,20 +52,25 @@ const Local = ({product, setState}) => {
     setError(null)
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e,) => {
     e.preventDefault();
-    if (value > product.total) {
-    } else {
-      setState((prevState) => {
-        const {cart} = prevState
-        const el = cart.find(el => el.id === product.id)
-        const actualValue = el ? Number(value) + Number(el.number) : value;
-        const valueForItem = el && el.total < actualValue ? el.number : actualValue;
-        const isEnough = el ? el.total > value + el.number : true;
-        if (!isEnough) setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
-        return ({...prevState, cart: addValueToCart(prevState.cart, valueForItem, product)})
-      })
-    }
+    console.log(1111)
+    // if (value > product.total) {
+    // } else {
+      //   setState((prevState) => {
+      //     const {cart} = prevState
+      //     const el = cart.find(el => el.id === product.id)
+      //     const actualValue = el ? Number(value) + Number(el.number) : value;
+      //     const valueForItem = el && el.total < actualValue ? el.number : actualValue;
+      //     const isEnough = el ? el.total > value + el.number : true;
+      //     if (!isEnough) setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
+      //     return ({...prevState, cart: addValueToCart(prevState.cart, valueForItem, product)})
+      //   })
+
+
+      postOne(product.id, product.title, value)
+      console.log(postOne)
+    // }
   };
 
   return (

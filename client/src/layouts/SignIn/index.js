@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
 import ApiService from "../../api/base";
 
-const SignIn = ({history}) => {
+const SignIn = ({history, setState}) => {
 
   const [error, setError] = useState(null)
   const [counter, setCounter] = useState(5)

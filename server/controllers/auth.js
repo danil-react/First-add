@@ -19,6 +19,8 @@ module.exports.login = async function (req, res) {
         message: 'Token is found',
         token: `Bearer ${token}`
       })
+
+      res.status(201).json(candidate)
     } else {
       res.status(401).json({
         message: 'Passwords do not match'
@@ -44,7 +46,8 @@ module.exports.registration = async function (req, res) {
     const user = new User({
       name: req.body.name,
       email: req.body.email,
-      password: bcrypt.hashSync(password, salt)
+      password: bcrypt.hashSync(password, salt),
+      cart: []
     })
     try {
       await user.save()

@@ -20,9 +20,6 @@ const userSchema = new Schema({
       id:{
         type: Number,
       },
-      title:{
-        type: String,
-      },
       total: {
         type: Number,
       },

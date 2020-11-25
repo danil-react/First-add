@@ -18,6 +18,7 @@ module.exports.getAll = async function (req, res) {
 }
 
 module.exports.postOne = async function (req, res) {
+  console.log(req.body)
   try {
     await User.update({
         _id: req.user.id,
@@ -27,8 +28,7 @@ module.exports.postOne = async function (req, res) {
           cart: [
             {
               productId: req.body.product,
-              title: req.body.title,
-              total: req.body.total
+              total: req.body.total,
             }
           ]
         }
@@ -42,7 +42,7 @@ module.exports.postOne = async function (req, res) {
   }
 }
 
-module.exports.remove = async function (req, res) {
+module.exports.deleteOne = async function (req, res) {
   try {
     await User.updateOne({_id: req.user.id}, {$pull: {cart: {productId: req.body.productId}}})
     const product = Products.findById(req.body.product)

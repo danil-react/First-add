@@ -2,12 +2,13 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-
-const CardCart = ({cart, setState}) => {
+const CardCart = ({cart, setState, deleteOne}) => {
 
   const handleClick = (id) => {
     setState(prevState => ({...prevState, cart: cart.filter(item => item.id !== id)}))
   }
+
+  // const product = product.filter ((i) => { item.id === i.id })
   return (
     <div className={styles.container}>
       <div className={styles.goods}>
@@ -33,7 +34,9 @@ const CardCart = ({cart, setState}) => {
                 </div>
                 <div className={styles.right}>
                   <div className={styles.deleted}>
-                    <button type="button" onClick={() => handleClick(item.id)}>x</button>
+                    <button type="button" onClick={() => {
+                      deleteOne(item._id, item.total)
+                    }}>x</button>
                   </div>
                 </div>
               </div>

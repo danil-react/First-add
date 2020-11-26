@@ -3,7 +3,6 @@ import React, {useCallback, useEffect} from "react";
 import Local from "../LocalStorage/index"
 
 import styles from "./styles.module.scss";
-import ApiService from "../../api/base";
 
 const ModalCard = (props) => {
 

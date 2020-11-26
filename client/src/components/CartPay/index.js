@@ -2,11 +2,11 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-const CartPay = ({cart, setState}) => {
+const CartPay = ({cart, setState, checkOut}) => {
 
-  const handleClick = (id) => {
-    setState(prevState => ({...prevState, cart: cart.filter(item => item.id !== id)}))
-  }
+  // const handleClick = (id) => {
+  //   setState(prevState => ({...prevState, cart: cart.filter(item => item.id !== id)}))
+  // }
 
   const subTotal = cart.map(item => item.price * item.number).reduce((acc, item) => {return acc + item}, 0)
 
@@ -19,7 +19,7 @@ const CartPay = ({cart, setState}) => {
           </div>
         </div>
         <div className={styles.checkOut}>
-          <button type="button">Check out</button>
+          <button type="button" onClick={() => checkOut()}>Check out</button>
         </div>
       </div>
     </div>

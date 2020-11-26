@@ -9,9 +9,8 @@ import ApiService from "../../api/base";
 
 import Logo from "../../assets/images/lovelamp.svg";
 
-
-const Home = ({setState}) => {
-  const [products, setProducts] = useState([])
+const Home = ({setState, products}) => {
+  // const [products, setProducts] = useState([])
   const [selectedProduct, setSelectedProduct] = useState({})
 
   // useLayoutEffect(() => {
@@ -33,24 +32,11 @@ const Home = ({setState}) => {
     })
   }
 
-  const getAll = useCallback( () => {
-    ApiService.get({
-      resource:`product/`,
-    }).then(({data}) => {
-      console.log(data)
-      setProducts(data)
-    })
-  })
-
   const getOne = useCallback((id) => {
    return ApiService.get({
       resource:`product/${id}`,
     })
-  })
-
-useEffect(() => {
-    getAll({products})
-},[])
+  },[])
 
   return (
     <div className={styles.container}>
@@ -75,7 +61,6 @@ useEffect(() => {
         </Modal>
       </Container>
     </div>
-
   );
 }
 export default Home

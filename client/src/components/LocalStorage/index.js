@@ -21,27 +21,28 @@ const addValueToCart = (cart, value, product) => {
 }
 
 const Local = ({product, setState}) => {
-  const [value, setValue] = useState('')
+  console.log(product, 'product')
+  const [value, setValue] = useState(1)
   const [error, setError] = useState(false)
 
   const postOne = async (productId, title, total) => {
-     await ApiService.post({
+    const userId = localStorage.getItem('user')
+    console.log(productId, 546546)
+    await ApiService.post({
       resource: `cart/`,
       params: {
         productId: productId,
         total: total,
+        userId
       }
-    }).then(({data, cart}) => {
-      console.log(data)
-       // const cart = JSON.parse(localStorage.getItem(cart.date.cart))
-       // if (data && data.token) {
-       //
-       // }
-    }).catch((e)=>{
-       console.log(e)
-     })
-  }
+    }).then(({data}) => {
+      console.log(data, 111111111111)
 
+      localStorage.seItem('cart', JSON.stringify([product]))
+    }).catch((e) => {
+      console.log(e)
+    })
+  }
 
 
   const handleChange = (e) => {
@@ -52,25 +53,11 @@ const Local = ({product, setState}) => {
     setError(null)
   };
 
-  const handleClick = (e,) => {
+  const handleClick = (e) => {
     e.preventDefault();
     console.log(1111)
-    // if (value > product.total) {
-    // } else {
-      //   setState((prevState) => {
-      //     const {cart} = prevState
-      //     const el = cart.find(el => el.id === product.id)
-      //     const actualValue = el ? Number(value) + Number(el.number) : value;
-      //     const valueForItem = el && el.total < actualValue ? el.number : actualValue;
-      //     const isEnough = el ? el.total > value + el.number : true;
-      //     if (!isEnough) setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
-      //     return ({...prevState, cart: addValueToCart(prevState.cart, valueForItem, product)})
-      //   })
-
-
-      postOne(product.id, product.title, value)
-      console.log(postOne)
-    // }
+    postOne(product._id, product.title, value)
+    console.log(postOne)
   };
 
   return (
@@ -82,7 +69,7 @@ const Local = ({product, setState}) => {
                name="number"
                type="number"
         />
-        <button onClick={handleClick} id={"AddToCart"}><AddShoppingCartIcon />Add to cart</button>
+        <button onClick={handleClick} id={"AddToCart"}><AddShoppingCartIcon/>Add to cart</button>
 
         {error && <p className={styles.error}>{error}</p>}
       </div>
@@ -91,3 +78,17 @@ const Local = ({product, setState}) => {
 }
 
 export default Local
+
+
+// if (value > product.total) {
+// } else {
+//   setState((prevState) => {
+//     const {cart} = prevState
+//     const el = cart.find(el => el.id === product.id)
+//     const actualValue = el ? Number(value) + Number(el.number) : value;
+//     const valueForItem = el && el.total < actualValue ? el.number : actualValue;
+//     const isEnough = el ? el.total > value + el.number : true;
+//     if (!isEnough) setError('Erorr: There is not enough stock to add' + " " + [product.title] + " " + "to you cart")
+//     return ({...prevState, cart: addValueToCart(prevState.cart, valueForItem, product)})
+//   })
+// }

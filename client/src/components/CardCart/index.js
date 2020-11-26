@@ -2,20 +2,20 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-const CardCart = ({cart, setState, deleteOne}) => {
+const CardCart = ({cart, setState, deleteOne, getAll, prods}) => {
 
-  const handleClick = (id) => {
-    setState(prevState => ({...prevState, cart: cart.filter(item => item.id !== id)}))
-  }
-
-  // const product = product.filter ((i) => { item.id === i.id })
+  // const handleClick = (id) => {
+  //   setState(prevState => ({...prevState, cart: getAll.filter(item => item.id !== id)}))
+  // }
+  //
+  // // const product = getAll.filter ((i) => { item.id === i.id })
   return (
     <div className={styles.container}>
       <div className={styles.goods}>
-        {cart.map(item => {
+        {prods.map(item => {
           return (
             <>
-              <div className={styles.container} key={item.id}>
+              <div className={styles.container} key={item._id}>
                 <div className={styles.left}>
                   <div className={styles.img}>
                     <img src={`http://localhost:5000${item.img}`}/>
@@ -25,7 +25,7 @@ const CardCart = ({cart, setState, deleteOne}) => {
                       {`${item.title}`}
                     </div>
                     <div className={styles.cardPrice}>
-                      {`${item.number} x $${item.price}`}
+                      {`${item.total} x $${item.price}`}
                     </div>
                     <div className={styles.cardInfo}>
                       {`${item.info}`}
@@ -35,7 +35,7 @@ const CardCart = ({cart, setState, deleteOne}) => {
                 <div className={styles.right}>
                   <div className={styles.deleted}>
                     <button type="button" onClick={() => {
-                      deleteOne(item._id, item.total)
+                      deleteOne()
                     }}>x</button>
                   </div>
                 </div>

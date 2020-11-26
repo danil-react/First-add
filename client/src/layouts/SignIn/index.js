@@ -29,6 +29,7 @@ const SignIn = ({history, setState}) => {
     }).then(({data}) => {
       console.log(data, 'login1')
       localStorage.setItem('token', data.token)
+      localStorage.setItem('user', data.user._id)
       history.push('/')
     })
       .catch((e) => {

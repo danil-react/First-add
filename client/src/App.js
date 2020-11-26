@@ -66,12 +66,16 @@ const BasicExample = () => {
   const [products, setProducts] = useState([])
 
   const getAll = useCallback( () => {
+    const allProducts = localStorage.getItem('products')
     ApiService.get({
       resource:`product/`,
+      params: {
+        allProducts
+      }
     }).then(({data}) => {
-      console.log(data)
+      localStorage.setItem('products',JSON.stringify(data))
       setProducts(data)
-      console.log(setProducts(data),111)
+
     })
   },[])
   useLayoutEffect(() => {

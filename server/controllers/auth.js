@@ -17,10 +17,11 @@ module.exports.login = async function (req, res) {
       }, keys.jwt, {expiresIn: 60 * 60})
       res.status(200).json({
         message: 'Token is found',
-        token: `Bearer ${token}`
+        token: `Bearer ${token}`,
+        user: candidate
       })
 
-      res.status(201).json(candidate)
+      // res.status(201).json(candidate)
     } else {
       res.status(401).json({
         message: 'Passwords do not match'

@@ -18,7 +18,7 @@ const userSchema = new Schema({
   cart: [
     {
       id:{
-        type: Number,
+        type: String,
       },
       total: {
         type: Number,

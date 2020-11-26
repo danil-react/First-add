@@ -21,23 +21,24 @@ const addValueToCart = (cart, value, product) => {
 }
 
 const Local = ({product, setState}) => {
-  const [value, setValue] = useState('')
+  console.log(product, 'product')
+  const [value, setValue] = useState(1)
   const [error, setError] = useState(false)
 
   const postOne = async (productId, title, total) => {
-    // localStorage.setItem('token', data.token)
-    const data = {
-
-    }
+    const userId = localStorage.getItem('user')
+    console.log(productId, 546546)
     await ApiService.post({
       resource: `cart/`,
       params: {
         productId: productId,
         total: total,
+        userId
       }
     }).then(({data}) => {
-      console.log(data)
+      console.log(data, 111111111111)
 
+      localStorage.seItem('cart', JSON.stringify([product]))
     }).catch((e) => {
       console.log(e)
     })
@@ -52,10 +53,10 @@ const Local = ({product, setState}) => {
     setError(null)
   };
 
-  const handleClick = (e,) => {
+  const handleClick = (e) => {
     e.preventDefault();
     console.log(1111)
-    postOne(product.id, product.title, value)
+    postOne(product._id, product.title, value)
     console.log(postOne)
   };
 
